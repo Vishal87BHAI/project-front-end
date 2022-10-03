@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.addinput{
+  width: 60vh;
+  height: 10vh;
+}
+
+.login{
+  width: 60vh;
+  margin: 5px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -21,7 +31,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(153, 184, 184);
 }
 
 .App-link {
