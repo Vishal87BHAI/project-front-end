@@ -30,7 +30,7 @@ const Home=()=>{
 
     return(
         <div className='body'>
-            <h1 className="home" style={{fontSize:"60px"}}>Home Page</h1>
+            <h1 className="home" style={{fontSize:"60px"}}>Welcome To School Home Page</h1>
             <hr style={{color:"white"}}/>
             <div className='main'>
                 <div className='teacher'><h1 style={{color:"white" , fontSize:"50px"}}>Teachers</h1>
