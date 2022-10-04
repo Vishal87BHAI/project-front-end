@@ -3,19 +3,29 @@ import './Home.css';
 
 const Home=()=>{
     
-    const [data,setData]:any=useState([])
+    const [tdata,setTdata]:any=useState([])
+    const [sdata,setSdata]:any=useState([])
 
     useEffect(() => {
         getTeacherdata();
-    }, [])
+        getstudentdata();
+    },[])
 
     const getTeacherdata = async () => {
         var result = await fetch("http://localhost:9000/getteacher");
         result = await result.json();
-        setData(result);
+        setTdata(result);
     }
 
-    let countTeacher=data.length;
+    let countTeacher=tdata.length;
+
+    const getstudentdata = async () => {
+        var result = await fetch("http://localhost:9000/getstudent");
+        result = await result.json();
+        setSdata(result);
+    }
+
+    let countstudent=sdata.length;
 
 
     return(
@@ -28,7 +38,7 @@ const Home=()=>{
                 </div>
                 <div className='line'></div>
                 <div className='student'><h1 style={{color:"white" , fontSize:"50px"}}>Students</h1>
-                <h1 style={{color:"white" , fontSize:"50px"}}>0</h1>
+                <h1 style={{color:"white" , fontSize:"50px"}}>{countstudent}</h1>
                 </div>
             </div>
         </div>

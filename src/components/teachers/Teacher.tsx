@@ -44,10 +44,20 @@ const Teacher = () => {
         }
     }
 
+    const handlesearch=async (e:any)=>{
+        var result = await fetch("http://localhost:9000/search/"+e.target.value);
+        result = await result.json();
+        setData(result);
+    }
+
     return (
         <div style={{ marginTop: "55px" }}>
             <h1>Teachers</h1>
-            <Link to={"/Addteacher"}><Button variant="contained" style={{ float: "right", marginRight: "90px" }}>Add Teacher</Button></Link><br /><br />
+            <div style={{ backgroundColor: "orange", height: "40px", borderRadius: "10px", marginLeft: "5px", marginRight: "5px" }}>
+                <input type="text" placeholder="Search" onChange={handlesearch} style={{ marginTop: "5px", float: "left", marginLeft: "10px" }} />
+                <Button variant="contained" style={{ float: "right", marginRight: "90px", marginTop:"1px" }} onClick={()=> navigate("/Addteacher")}>Add Teacher</Button>
+                </div>
+            <br /><br />
             <table className="table border shadow table-hover">
                 <thead className="table-dark">
                     <tr>

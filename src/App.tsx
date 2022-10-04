@@ -19,13 +19,13 @@ function App() {
        <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
           <Route path="/Teacher" element={<Teacher />} />
           <Route path="/Student" element={<Student />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/Addstudent" element={<Addstudent />} />
-          <Route path="/Editstudent" element={<Editstudent />} />
-          <Route path="/Viewstudent" element={<Viewstudent />} />
+          <Route path="/Editstudent/:id" element={<Editstudent />} />
+          <Route path="/Viewstudent/:id" element={<Viewstudent />} />
           <Route path="/Addteacher" element={<Addteacher />} />
           <Route path="/Editteacher/:id" element={<Editteacher />} />
           <Route path="/Viewteacher/:id" element={<Viewteacher />} />

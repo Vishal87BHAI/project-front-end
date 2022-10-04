@@ -9,7 +9,7 @@ const Navbar=()=> {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <NavLink className='nav-link' to="/">Home</NavLink>
+                            <NavLink className='nav-link' to="/Home">Home</NavLink>
                         </li>
                         <li className="nav-item active">
                             <NavLink className='nav-link' to="/Teacher">Teachers</NavLink>
@@ -18,7 +18,7 @@ const Navbar=()=> {
                             <NavLink className='nav-link' to="/Student">Students</NavLink>
                         </li>
                         <li className="nav-item active">
-                            <NavLink className='nav-link' to="/Login">Log Out</NavLink>
+                            <NavLink className='nav-link' to="/">Log Out</NavLink>
                         </li>
                     </ul>
                 </div>

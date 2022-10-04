@@ -9,7 +9,17 @@ const Login = () => {
 
     const handleSubmit = async () => {
 
-        let result = await fetch("http://localhost:9000/login",
+        if(email==="")
+        {
+            alert("Please enter Email")
+        }
+        else if(password==="")
+        {
+            alert("Please enter Password")
+        }
+        else
+        {
+            let result = await fetch("http://localhost:9000/login",
             {
                 method: "post",
                 body: JSON.stringify({ email, password }),
@@ -22,15 +32,17 @@ const Login = () => {
         if(result)
         {
             alert("Login Successfully")
-            navigate("/");
+            navigate("/Home");
         }
         else{
             alert("Please enter valid data")
         }
+        }
+
     }
 
     return (
-        <div style={{ paddingTop: "100px" }}>
+        <div style={{paddingTop:"100px" }}>
             <h1>Login</h1><br />
 
             <div>
