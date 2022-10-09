@@ -78,7 +78,7 @@ const Teacher = () => {
                         data.map((item: ITeacher, index: any) =>
                             <tr>
                                 <td>{index+1}</td>
-                                <td>{item.id}</td>
+                                <td>{item._id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.id}</td>
                                 <td>{item.subject}</td>

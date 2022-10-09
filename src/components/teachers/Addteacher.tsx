@@ -5,18 +5,18 @@ import { useState } from "react";
 
 const Addteacher = () => {
     const navigate = useNavigate();
-    
+
     const [name, setName] = useState('');
     const [id, setId] = useState('');
     const [subject, setSubject] = useState('');
-    const [dob, setDob] = useState<Date>();
+    const [dob, setDob] = useState('');
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('');
 
-    
+
     const handlesubmit = async () => {
 
-        if (name === "" && id === "" && subject === "" && age === "" && gender === "") {
+        if (name === "" && id === "" && subject === "" && dob === "" && gender === "") {
             alert("Please enter the values");
         }
         else if (name === "") {
@@ -27,6 +27,9 @@ const Addteacher = () => {
         }
         else if (subject === "") {
             alert("Please enter the subject");
+        }
+        else if (dob === "") {
+            alert("Please select the Date of Birth");
         }
         else if (gender === "") {
             alert("Please select the gender");
@@ -41,7 +44,7 @@ const Addteacher = () => {
                         'Accept': 'application/json'
                     }
                 });
-            result = await result.json();
+            let res = await result.json();
             alert("New Teacher added successfully");
             navigate("/Teacher");
         }
@@ -51,12 +54,6 @@ const Addteacher = () => {
         setGender(e.target.value)
     }
 
-    const handledob = (e:any)=>{
-        setDob(e.target.value)
-        
-    }
-
-
     return (
         <div style={{ marginTop: "70px" }}>
             <h1>Add Teacher</h1>
@@ -65,7 +62,7 @@ const Addteacher = () => {
                     <TextField required className="addinput" id="name" label="Teacher Name" placeholder="Enter the Name of Teacher" onChange={(e) => setName(e.target.value)} variant="outlined" />
                     <TextField required className="addinput" id="id" label="Teacher Id" placeholder="Enter the Id of Teacher" onChange={(e) => setId(e.target.value)} variant="outlined" />
                     <TextField required className="addinput" id="subject" label="Subject" placeholder="Enter the Subject" onChange={(e) => setSubject(e.target.value)} variant="outlined" />
-                    <TextField required className="addinput" type="date" defaultValue={Date.now} id="dob" onChange={(e) => handledob} variant="outlined" />
+                    <TextField required className="addinput" type="date" defaultValue={Date.now} id="dob" onChange={(e) => setDob(e.target.value)} variant="outlined" />
 
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
@@ -75,14 +72,15 @@ const Addteacher = () => {
                         <FormControlLabel value="female" control={<Radio />} label="Female" onChange={handlegender} />
                         <FormControlLabel value="other" control={<Radio />} label="Other" onChange={handlegender} />
                     </RadioGroup>
-                    <div style={{display:"inline-flex"}}>
-                    <Button variant="contained" style={{width:"25vh",marginLeft:"5vh",marginTop:"20px"}} type="submit" onClick={()=>{navigate("/Teacher")}}>Back</Button>
-                    <Button variant="contained" style={{ width: "25vh", marginLeft: "10px", marginTop: "20px" }} type="submit" onClick={handlesubmit}>Submit</Button>
+                    <div style={{ display: "inline-flex" }}>
+                        <Button variant="contained" style={{ width: "25vh", marginLeft: "5vh", marginTop: "20px" }} type="submit" onClick={() => { navigate("/Teacher") }}>Back</Button>
+                        <Button variant="contained" style={{ width: "25vh", marginLeft: "10px", marginTop: "20px" }} type="submit" onClick={handlesubmit}>Submit</Button>
                     </div>
                 </FormControl>
             </div >
         </div >
     )
+
 }
 
 export default Addteacher;
