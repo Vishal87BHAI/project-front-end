@@ -12,7 +12,7 @@ import Addteacher from './components/teachers/Addteacher';
 import Editteacher from './components/teachers/Editteacher';
 import Viewstudent from './components/students/Viewstudent';
 import Viewteacher from './components/teachers/Viewteacher';
-import Protected from './Protected';
+import Protected from './components/Protected';
 import { useEffect } from 'react';
 
 function App() {
