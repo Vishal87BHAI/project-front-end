@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navigation/Navbar';
 import Home from './components/home/Home';
@@ -12,24 +12,31 @@ import Addteacher from './components/teachers/Addteacher';
 import Editteacher from './components/teachers/Editteacher';
 import Viewstudent from './components/students/Viewstudent';
 import Viewteacher from './components/teachers/Viewteacher';
+import Protected from './Protected';
+import { useEffect } from 'react';
 
 function App() {
+
   return (
     <div className="App">
-       <BrowserRouter>
-        <Navbar />
+      <BrowserRouter>
         <Routes>
-          <Route path="/Home" element={<Home />} />
-          <Route path="/Teacher" element={<Teacher />} />
-          <Route path="/Student" element={<Student />} />
+
+          <Route element={<Protected />}>
+            <Route path="/Home" element={<Home />} />
+            <Route path="/Teacher" element={<Teacher />} />
+            <Route path="/Student" element={<Student />} />
+            <Route path="/Addstudent" element={<Addstudent />} />
+            <Route path="/Editstudent/:id" element={<Editstudent />} />
+            <Route path="/Viewstudent/:id" element={<Viewstudent />} />
+            <Route path="/Addteacher" element={<Addteacher />} />
+            <Route path="/Editteacher/:id" element={<Editteacher />} />
+            <Route path="/Viewteacher/:id" element={<Viewteacher />} />
+            <Route path="/*" element={<Error />} />
+          </Route>
+
           <Route path="/" element={<Login />} />
-          <Route path="/Addstudent" element={<Addstudent />} />
-          <Route path="/Editstudent/:id" element={<Editstudent />} />
-          <Route path="/Viewstudent/:id" element={<Viewstudent />} />
-          <Route path="/Addteacher" element={<Addteacher />} />
-          <Route path="/Editteacher/:id" element={<Editteacher />} />
-          <Route path="/Viewteacher/:id" element={<Viewteacher />} />
-          <Route path="/*" element={<Error />} />
+
         </Routes>
       </BrowserRouter>
     </div>

@@ -69,8 +69,11 @@ const Addstudent=()=>{
                             <FormControlLabel value="male" control={<Radio />} label="Male" onChange={handlegender} />
                             <FormControlLabel value="female" control={<Radio />} label="Female" onChange={handlegender} />
                             <FormControlLabel value="other" control={<Radio />} label="Other" onChange={handlegender} />
+                            <div style={{display:"inline-flex"}}>
+                    <Button variant="contained" style={{width:"25vh",marginLeft:"5vh",marginTop:"20px"}} type="submit" onClick={()=>{navigate("/Student")}}>Back</Button>
+                    <Button variant="contained" style={{ width: "25vh", marginLeft: "10px", marginTop: "20px" }} type="submit" onClick={handlesubmit}>Submit</Button>
+                    </div>
                         </RadioGroup>
-                    <Button variant="contained" style={{width:"30vh",marginLeft:"10vh",marginTop:"20px"}} type="submit" onClick={handlesubmit}>Submit</Button>
                 </FormControl>
             </div >                     
         </div>

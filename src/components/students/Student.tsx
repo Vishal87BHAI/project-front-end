@@ -1,11 +1,22 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../navigation/Navbar";
 
 
 const Student=()=>{
 
-    const [data, setData]: any = useState([]);
+    interface IStudent {
+        name: String,
+        clas: String,
+        roll: String,
+        dob:  String,
+        age: String,
+        gender: String,
+        _id: string
+    }
+
+    const [data, setData]: any = useState<IStudent[]>([]);
     const navigate=useNavigate();
 
     useEffect(() => {
@@ -14,8 +25,8 @@ const Student=()=>{
 
     const getdata = async () => {
         var result = await fetch("http://localhost:9000/getstudent");
-        result = await result.json();
-        setData(result);
+        let res:IStudent[] = await result.json();
+        setData(res);
     }
 
     const deletedata = async (id: any) => {
@@ -23,8 +34,8 @@ const Student=()=>{
             {
                 method: "Delete"
             });
-        result = await result.json()
-        if (result) {
+        let res = await result.json()
+        if (res) {
             alert(id + " Deleted")
             getdata();
         }
@@ -35,12 +46,13 @@ const Student=()=>{
 
     const handlesearch=async (e:any)=>{
         var result = await fetch("http://localhost:9000/search/"+e.target.value);
-        result = await result.json();
-        setData(result);
+        let res:IStudent[] = await result.json();
+        setData(res);
     }
 
     return(
         <div>
+                <Navbar />
             <h1 style={{marginTop: "55px"}}>Students</h1>
             <div style={{ backgroundColor: "orange", height: "40px", borderRadius: "10px", marginLeft: "5px", marginRight: "5px" }}>
                 <input type="text" placeholder="Search" onChange={handlesearch} style={{ marginTop: "5px", float: "left", marginLeft: "10px" }} />
@@ -62,7 +74,7 @@ const Student=()=>{
                 </thead>
                 <tbody>
                 {
-                        data.map((item: any, index: any) =>
+                        data.map((item:IStudent, index: any) =>
                             <tr>
                                 <td>{index+1}</td>
                                 <td>{item._id}</td>

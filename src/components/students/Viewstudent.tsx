@@ -1,9 +1,12 @@
+import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 const Viewstudent=()=>
 {
+
+    const navigate=useNavigate();
 
     let {id}=useParams();
 
@@ -36,6 +39,8 @@ const Viewstudent=()=>
             <h3>Age</h3><li className="list-group-item active">{data.age}</li><br/>
 
             <h3>Gender</h3><li className="list-group-item active">{data.gender}</li><br/>
+
+            <Button variant="contained" style={{width:"25vh",marginTop:"20px"}} type="submit" onClick={()=>{navigate("/Student")}}>Back</Button>
             </ul>
         </div>
         </div>

@@ -19,7 +19,7 @@ const Login = () => {
         }
         else
         {
-            let result = await fetch("http://localhost:9000/login",
+            let result:any = await fetch("http://localhost:9000/login",
             {
                 method: "post",
                 body: JSON.stringify({ email, password }),
@@ -28,9 +28,10 @@ const Login = () => {
                     'Accept': 'application/json'
                 }
             });
-        result = await result.json();
-        if(result)
+        let res = await result.json();
+        if(res && !res.error)
         {
+            localStorage.setItem("user",JSON.stringify(res));
             alert("Login Successfully")
             navigate("/Home");
         }

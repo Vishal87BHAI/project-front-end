@@ -1,21 +1,21 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../navigation/Navbar";
 
-interface istate {
+interface ITeacher {
     name: String,
     id: String,
     subject: String,
-    dob: {
-        type: Date
-    },
+    dob:  String,
     age: String,
-    gender: String
+    gender: String,
+    _id: string
 }
 
 const Teacher = () => {
 
-    const [data, setData]: any = useState([]);
+    const [data, setData] = useState<ITeacher[]>([]);
 
     const navigate=useNavigate();
 
@@ -25,8 +25,8 @@ const Teacher = () => {
 
     const getdata = async () => {
         var result = await fetch("http://localhost:9000/getteacher");
-        result = await result.json();
-        setData(result);
+        const res:ITeacher[] = await result.json();
+        setData(res);
     }
 
     const deletedata = async (id: any) => {
@@ -34,8 +34,8 @@ const Teacher = () => {
             {
                 method: "Delete"
             });
-        result = await result.json()
-        if (result) {
+        const res:ITeacher[] = await result.json()
+        if (res) {
             alert(id + " Deleted")
             getdata();
         }
@@ -46,13 +46,14 @@ const Teacher = () => {
 
     const handlesearch=async (e:any)=>{
         var result = await fetch("http://localhost:9000/search/"+e.target.value);
-        result = await result.json();
-        setData(result);
+        const res:ITeacher[] = await result.json();
+        setData(res);
     }
 
     return (
-        <div style={{ marginTop: "55px" }}>
-            <h1>Teachers</h1>
+        <div>
+            <Navbar />
+            <h1 style={{ marginTop: "55px" }}>Teachers</h1>
             <div style={{ backgroundColor: "orange", height: "40px", borderRadius: "10px", marginLeft: "5px", marginRight: "5px" }}>
                 <input type="text" placeholder="Search" onChange={handlesearch} style={{ marginTop: "5px", float: "left", marginLeft: "10px" }} />
                 <Button variant="contained" style={{ float: "right", marginRight: "90px", marginTop:"1px" }} onClick={()=> navigate("/Addteacher")}>Add Teacher</Button>
@@ -74,10 +75,10 @@ const Teacher = () => {
                 </thead>
                 <tbody>
                     {
-                        data.map((item: any, index: any) =>
+                        data.map((item: ITeacher, index: any) =>
                             <tr>
                                 <td>{index+1}</td>
-                                <td>{item._id}</td>
+                                <td>{item.id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.id}</td>
                                 <td>{item.subject}</td>

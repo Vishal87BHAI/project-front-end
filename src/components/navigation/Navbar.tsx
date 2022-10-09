@@ -18,7 +18,7 @@ const Navbar=()=> {
                             <NavLink className='nav-link' to="/Student">Students</NavLink>
                         </li>
                         <li className="nav-item active">
-                            <NavLink className='nav-link' to="/">Log Out</NavLink>
+                            <NavLink className='nav-link' to="/" onClick={()=>{localStorage.clear()}}>Log Out</NavLink>
                         </li>
                     </ul>
                 </div>
