@@ -69,6 +69,7 @@ const Teacher = () => {
                         <th scope="col">Subject</th>
                         <th scope="col">Date of birth</th>
                         <th scope="col">Age</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Action</th>
                     </tr>

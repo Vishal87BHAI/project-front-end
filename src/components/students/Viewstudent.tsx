@@ -24,7 +24,7 @@ const Viewstudent=()=>
 
     return(
         <div>
-             <div style={{ marginTop: "55px" }}>
+             <div style={{ marginTop: "10px" }}>
             <h1>Student</h1><br/>
             <ul className="list-group w-50" style={{display:"inline-block" , marginBottom:"40px"  }}>
                 

@@ -56,7 +56,7 @@ const Addstudent=()=>{
         <div style={{marginTop:"70px"}}>
             <h1>Add Student</h1>
             <div style={{ marginLeft: "43vh" }}>
-                <FormControl className="form" style={{ width: "50%" , marginRight:"150px" , marginTop:"40px" }}>
+                <FormControl className="form" style={{ width: "50%" , marginRight:"150px" , marginTop:"40px", marginBottom:"20px" }}>
                     <TextField  className="addinput" id="name" label="Student Name" placeholder="Enter the Name of Student" onChange={(e) => setName(e.target.value)} variant="outlined" />
                     <TextField  className="addinput" id="class" label="Class" placeholder="Enter the Class of Student" onChange={(e) => setClas(e.target.value)} variant="outlined" />
                     <TextField  className="addinput" id="roll" label="Roll Number" placeholder="Enter the Roll Number of Student" onChange={(e) => setRoll(e.target.value)} variant="outlined" />

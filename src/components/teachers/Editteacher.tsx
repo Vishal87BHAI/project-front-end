@@ -53,7 +53,7 @@ const Editteacher = () => {
         <div style={{ marginTop: "70px" }}>
             <h1>Edit Teacher</h1>
             <div style={{ marginLeft: "43vh" }}>
-            <FormControl className="form" style={{ width: "50%" , marginRight:"150px" , marginTop:"40px" }}>
+            <FormControl className="form" style={{ width: "50%" , marginRight:"150px" , marginTop:"40px", marginBottom:"20px" }}>
                     <TextField  className="addinput" type="text" id="name" placeholder="Enter the Name of Teacher" variant="outlined" value={data.name} onChange={(e)=>{setData({name:e.target.value})}} />
                     <TextField  className="addinput" type="text" id="id" placeholder="Enter the Id of Teacher" variant="outlined" value={data.id} onChange={(e)=>{setData({id:e.target.value})}} />
                     <TextField  className="addinput" type="text" id="subject" placeholder="Enter the Subject" variant="outlined" value={data.subject} onChange={(e)=>{setData({subject:e.target.value})}} />

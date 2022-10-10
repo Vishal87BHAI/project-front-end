@@ -58,11 +58,11 @@ const Addteacher = () => {
         <div style={{ marginTop: "70px" }}>
             <h1>Add Teacher</h1>
             <div style={{ marginLeft: "43vh" }}>
-                <FormControl className="form" style={{ width: "50%", marginRight: "150px", marginTop: "40px" }}>
+                <FormControl className="form" style={{ width: "50%", marginRight: "150px", marginTop: "40px", marginBottom:"20px" }}>
                     <TextField required className="addinput" id="name" label="Teacher Name" placeholder="Enter the Name of Teacher" onChange={(e) => setName(e.target.value)} variant="outlined" />
                     <TextField required className="addinput" id="id" label="Teacher Id" placeholder="Enter the Id of Teacher" onChange={(e) => setId(e.target.value)} variant="outlined" />
                     <TextField required className="addinput" id="subject" label="Subject" placeholder="Enter the Subject" onChange={(e) => setSubject(e.target.value)} variant="outlined" />
-                    <TextField required className="addinput" type="date" defaultValue={Date.now} id="dob" onChange={(e) => setDob(e.target.value)} variant="outlined" />
+                    <TextField required className="addinput" type="date" value={dob} id="dob" onChange={(e) => setDob(e.target.value)} variant="outlined" />
 
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"

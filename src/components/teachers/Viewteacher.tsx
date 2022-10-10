@@ -22,9 +22,9 @@ const Viewteacher=()=>
 
     return(
         <div>
-             <div style={{ marginTop: "55px" }}>
+             <div style={{ marginTop: "10px" }}>
             <h1>Teacher</h1><br/>
-            <ul className="list-group w-50" style={{display:"inline-block" , marginBottom:"40px"  }}>
+            <ul className="list-group w-50" style={{display:"inline-block" , marginBottom:"50px"  }}>
                 
             <h3>Teacher Name</h3><li className="list-group-item active">{data.name}</li><br/>
                 
