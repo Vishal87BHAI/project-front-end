@@ -1,11 +1,22 @@
 import { Button, TextField } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    
+    useEffect(()=>{
+        const auth=localStorage.getItem("user");
+        if(auth)
+        {
+            navigate("/Home");
+        }
+        else{
+            navigate("/");
+        }
+    },[])
 
     const handleSubmit = async () => {
 
@@ -43,8 +54,11 @@ const Login = () => {
     }
 
     return (
-        <div style={{paddingTop:"100px" }}>
-            <h1>Login</h1><br />
+        <div style={{paddingTop:"90px" }}>
+
+            <h1 style={{paddingBottom:"40px", fontSize:"60px", color:"red" }}>Welcome to School Management</h1>
+
+            <h1 style={{color:"blue",fontSize:"50px" }}>Login</h1><br />
 
             <div>
                 <TextField className="login" id="mail" label="mail" placeholder="Enter Your mail" variant="outlined" onChange={(e) => setEmail(e.target.value)} value={email} />
