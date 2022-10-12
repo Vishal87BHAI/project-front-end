@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { json } from 'stream/consumers';
 import Navbar from '../navigation/Navbar';
 import './Home.css';
 
@@ -13,7 +14,13 @@ const Home = () => {
     }, [])
 
     const getTeacherdata = async () => {
-        var result = await fetch("http://localhost:9000/getteacher");
+        var result = await fetch("http://localhost:9000/getteacher", {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+            }
+        });
         result = await result.json();
         setTdata(result);
     }
@@ -21,7 +28,13 @@ const Home = () => {
     let countTeacher = tdata.length;
 
     const getstudentdata = async () => {
-        var result = await fetch("http://localhost:9000/getstudent");
+        var result = await fetch("http://localhost:9000/getstudent", {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+            }
+        });
         result = await result.json();
         setSdata(result);
     }

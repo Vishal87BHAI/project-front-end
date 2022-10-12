@@ -24,7 +24,13 @@ const Student=()=>{
     }, [])
 
     const getdata = async () => {
-        var result = await fetch("http://localhost:9000/getstudent");
+        var result = await fetch("http://localhost:9000/getstudent", {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+            }
+        });
         let res:IStudent[] = await result.json();
         setData(res);
     }
@@ -33,6 +39,12 @@ const Student=()=>{
         var result = await fetch("http://localhost:9000/student/" + id,
             {
                 method: "Delete"
+            , 
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+                }
             });
         let res = await result.json()
         if (res) {
@@ -45,7 +57,13 @@ const Student=()=>{
     }
 
     const handlesearch=async (e:any)=>{
-        var result = await fetch("http://localhost:9000/search/"+e.target.value);
+        var result = await fetch("http://localhost:9000/search/"+e.target.value, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+            }
+        });
         let res:IStudent[] = await result.json();
         setData(res);
     }

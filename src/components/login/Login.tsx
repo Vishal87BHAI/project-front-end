@@ -42,7 +42,7 @@ const Login = () => {
         let res = await result.json();
         if(res && !res.error)
         {
-            localStorage.setItem("user",JSON.stringify(res));
+            localStorage.setItem("token",JSON.stringify(res.auth));
             alert("Login Successfully")
             navigate("/Home");
         }

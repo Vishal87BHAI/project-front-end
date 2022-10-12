@@ -22,7 +22,13 @@ const Editstudent=()=>{
     }, [])
 
     const getdata = async () => {
-        var result=await fetch("http://localhost:9000/getstudent/"+params.id);
+        var result=await fetch("http://localhost:9000/getstudent/"+params.id, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+            }
+        });
         result=await result.json();
         setData(result);   
     }
@@ -34,7 +40,9 @@ const Editstudent=()=>{
                     method: "put",
                     body: JSON.stringify(data),
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
                         
                     }
                 });

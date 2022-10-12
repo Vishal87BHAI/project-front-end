@@ -39,7 +39,8 @@ const Addstudent=()=>{
                     body: JSON.stringify({ name, clas, roll, dob, age, gender }),
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
                     }
                 });
             result = await result.json();

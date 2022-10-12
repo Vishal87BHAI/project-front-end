@@ -17,7 +17,13 @@ const Viewstudent=()=>
     }, [])
 
     const getdata = async () => {
-        var result=await fetch("http://localhost:9000/getstudent/"+id);
+        var result=await fetch("http://localhost:9000/getstudent/"+id, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+            }
+        });
         result=await result.json();
         setData(result);
     }

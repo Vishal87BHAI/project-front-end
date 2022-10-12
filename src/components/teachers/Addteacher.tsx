@@ -41,7 +41,8 @@ const Addteacher = () => {
                     body: JSON.stringify({ name, id, subject, dob, age, gender }),
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
                     }
                 });
             let res = await result.json();

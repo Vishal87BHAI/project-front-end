@@ -21,10 +21,16 @@ const Teacher = () => {
 
     useEffect(() => {
         getdata();
-    }, [])
+    },[])
 
     const getdata = async () => {
-        var result = await fetch("http://localhost:9000/getteacher");
+        let result = await fetch("http://localhost:9000/getteacher", {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+            }
+        });
         const res:ITeacher[] = await result.json();
         setData(res);
     }
@@ -33,6 +39,12 @@ const Teacher = () => {
         var result = await fetch("http://localhost:9000/teacher/" + id,
             {
                 method: "Delete"
+            , 
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+                }
             });
         const res:ITeacher[] = await result.json()
         if (res) {
@@ -45,7 +57,13 @@ const Teacher = () => {
     }
 
     const handlesearch=async (e:any)=>{
-        var result = await fetch("http://localhost:9000/search/"+e.target.value);
+        var result = await fetch("http://localhost:9000/search/"+e.target.value, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+            }
+        });
         const res:ITeacher[] = await result.json();
         setData(res);
     }
