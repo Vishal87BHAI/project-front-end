@@ -1,13 +1,13 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../navigation/Navbar";
 
 interface ITeacher {
     name: String,
     id: String,
     subject: String,
-    dob:  String,
+    dob: String,
     age: String,
     gender: String,
     _id: string
@@ -17,21 +17,21 @@ const Teacher = () => {
 
     const [data, setData] = useState<ITeacher[]>([]);
 
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         getdata();
-    },[])
+    })
 
     const getdata = async () => {
         let result = await fetch("http://localhost:9000/getteacher", {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token') || '{}')
             }
         });
-        const res:ITeacher[] = await result.json();
+        const res: ITeacher[] = await result.json();
         setData(res);
     }
 
@@ -39,14 +39,14 @@ const Teacher = () => {
         var result = await fetch("http://localhost:9000/teacher/" + id,
             {
                 method: "Delete"
-            , 
+                ,
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+                    'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token') || '{}')
                 }
             });
-        const res:ITeacher[] = await result.json()
+        const res: ITeacher[] = await result.json()
         if (res) {
             alert(id + " Deleted")
             getdata();
@@ -56,15 +56,15 @@ const Teacher = () => {
         }
     }
 
-    const handlesearch=async (e:any)=>{
-        var result = await fetch("http://localhost:9000/search/"+e.target.value, {
+    const handlesearch = async (e: any) => {
+        var result = await fetch("http://localhost:9000/search/" + e.target.value, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+                'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token') || '{}')
             }
         });
-        const res:ITeacher[] = await result.json();
+        const res: ITeacher[] = await result.json();
         setData(res);
     }
 
@@ -74,8 +74,8 @@ const Teacher = () => {
             <h1 style={{ marginTop: "55px" }}>Teachers</h1>
             <div style={{ backgroundColor: "orange", height: "40px", borderRadius: "10px", marginLeft: "5px", marginRight: "5px" }}>
                 <input type="text" placeholder="Search" onChange={handlesearch} style={{ marginTop: "5px", float: "left", marginLeft: "10px" }} />
-                <Button variant="contained" style={{ float: "right", marginRight: "90px", marginTop:"1px" }} onClick={()=> navigate("/Addteacher")}>Add Teacher</Button>
-                </div>
+                <Button variant="contained" style={{ float: "right", marginRight: "90px", marginTop: "1px" }} onClick={() => navigate("/Addteacher")}>Add Teacher</Button>
+            </div>
             <br /><br />
             <table className="table border shadow table-hover">
                 <thead className="table-dark">
@@ -95,7 +95,7 @@ const Teacher = () => {
                     {
                         data.map((item: ITeacher, index: any) =>
                             <tr>
-                                <td>{index+1}</td>
+                                <td>{index + 1}</td>
                                 <td>{item._id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.id}</td>
@@ -103,8 +103,8 @@ const Teacher = () => {
                                 <td>{item.dob}</td>
                                 <td>{item.age}</td>
                                 <td>{item.gender}</td>
-                                <td><Button variant="contained" style={{ marginRight: "5px" }} onClick={()=> navigate("/Viewteacher/"+item._id)}>View</Button>
-                                    <Button variant="contained" style={{ marginRight: "5px" }} onClick={()=> navigate("/Editteacher/"+item._id)}>Edit</Button>
+                                <td><Button variant="contained" style={{ marginRight: "5px" }} onClick={() => navigate("/Viewteacher/" + item._id)}>View</Button>
+                                    <Button variant="contained" style={{ marginRight: "5px" }} onClick={() => navigate("/Editteacher/" + item._id)}>Edit</Button>
                                     <Button variant="contained" onClick={() => deletedata(item._id)}>Delete</Button></td>
                             </tr>
 

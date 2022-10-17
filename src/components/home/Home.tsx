@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { json } from 'stream/consumers';
 import Navbar from '../navigation/Navbar';
 import './Home.css';
 
@@ -23,6 +22,7 @@ const Home = () => {
         });
         result = await result.json();
         setTdata(result);
+        
     }
 
     let countTeacher = tdata.length;
