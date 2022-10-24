@@ -14,6 +14,7 @@ import Viewstudent from './components/students/Viewstudent';
 import Viewteacher from './components/teachers/Viewteacher';
 import Protected from './components/Protected';
 import { useEffect } from 'react';
+import { Pagination } from '@mui/material';
 
 function App() {
 
@@ -31,7 +32,8 @@ function App() {
             <Route path="/Viewstudent/:id" element={<Viewstudent />} />
             <Route path="/Addteacher" element={<Addteacher />} />
             <Route path="/Editteacher/:id" element={<Editteacher />} />
-            <Route path="/Viewteacher/:id" element={<Viewteacher />} />
+            <Route path="/Viewteacher/:id" element={<Viewteacher />} />                  
+            <Route path="/Pagination" element={<Pagination />} />                  
             <Route path="/*" element={<Error />} />
           </Route>
 

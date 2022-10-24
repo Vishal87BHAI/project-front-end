@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navigation/Navbar";
+import Pagination from "../Pagination";
 
 interface ITeacher {
     name: String,
@@ -16,6 +17,12 @@ interface ITeacher {
 const Teacher = () => {
 
     const [data, setData] = useState<ITeacher[]>([]);
+
+    const [showppage,setShowppage]=useState<Number>(5);
+    const [pagination,setPagination]=useState<any>({
+        start:0,
+        end:showppage
+    });
 
     const navigate = useNavigate();
 
@@ -68,6 +75,10 @@ const Teacher = () => {
         setData(res);
     }
 
+    const onpagination=(start:any,end:any)=>{
+        setPagination({start:start,end:end});
+    }
+
     return (
         <div>
             <Navbar />
@@ -76,14 +87,18 @@ const Teacher = () => {
                 <input type="text" placeholder="Search" onChange={handlesearch} style={{ marginTop: "5px", float: "left", marginLeft: "10px" }} />
                 <Button variant="contained" style={{ float: "right", marginRight: "90px", marginTop: "1px" }} onClick={() => navigate("/Addteacher")}>Add Teacher</Button>
             </div>
-            <br /><br />
+            <br/>
+            <Pagination 
+            showppage={showppage}
+            onpagination={onpagination}
+            total={data.length}
+             />
+           <br/>
             <table className="table border shadow table-hover">
                 <thead className="table-dark">
                     <tr>
-                        <th scope="col">Serial Number</th>
-                        <th scope="col">Object id</th>
-                        <th scope="col">Teacher Name</th>
                         <th scope="col">Id</th>
+                        <th scope="col">Teacher Name</th>
                         <th scope="col">Subject</th>
                         <th scope="col">Date of birth</th>
                         <th scope="col">Age</th>
@@ -93,12 +108,10 @@ const Teacher = () => {
                 </thead>
                 <tbody>
                     {
-                        data.map((item: ITeacher, index: any) =>
+                        data.slice(pagination.start,pagination.end).map((item: ITeacher) =>
                             <tr>
-                                <td>{index + 1}</td>
-                                <td>{item._id}</td>
-                                <td>{item.name}</td>
                                 <td>{item.id}</td>
+                                <td>{item.name}</td>
                                 <td>{item.subject}</td>
                                 <td>{item.dob}</td>
                                 <td>{item.age}</td>
