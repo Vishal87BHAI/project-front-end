@@ -18,7 +18,7 @@ const Teacher = () => {
 
     const [data, setData] = useState<ITeacher[]>([]);
 
-    const [showppage,setShowppage]=useState<Number>(5);
+    const [showppage,setShowppage]=useState<Number>(2);
     const [pagination,setPagination]=useState<any>({
         start:0,
         end:showppage
