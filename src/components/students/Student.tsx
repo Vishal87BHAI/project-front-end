@@ -111,7 +111,6 @@ const Student = () => {
                         data.map((item: IStudent) =>
                             <tr>
                                 <td>{item.roll}</td>
-                                <td>{item._id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.clas}</td>
                                 <td>{item.dob}</td>

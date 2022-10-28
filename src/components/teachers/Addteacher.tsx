@@ -11,7 +11,21 @@ const Addteacher = () => {
     const [subject, setSubject] = useState('');
     const [dob, setDob] = useState('');
     const [age, setAge] = useState('');
+    const [img, setImg] = useState('');
     const [gender, setGender] = useState('');
+
+
+    const handlegender = (e: any) => {
+        setGender(e.target.value)
+    }
+
+    const handleimage = (e: any) => {
+        setImg( e.target.files[0]);
+        console.log({ "image": e.target.files[0] });
+        console.log("-------------");
+        console.log("imagestate"+img);
+
+    }
 
 
     const handlesubmit = async () => {
@@ -35,14 +49,17 @@ const Addteacher = () => {
             alert("Please select the gender");
         }
         else {
+            let form = new FormData();
+            form.append("test", img);
+            console.log(img);
             let result = await fetch("http://localhost:9000/teacher",
                 {
                     method: "post",
-                    body: JSON.stringify({ name, id, subject, dob, age, gender }),
+                    body: JSON.stringify({ name, id, subject, dob, age, img, gender }),
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
-                        'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token')||'{}')
+                        'Authorization': 'bearer ' + JSON.parse(localStorage.getItem('token') || '{}')
                     }
                 });
             let res = await result.json();
@@ -51,19 +68,17 @@ const Addteacher = () => {
         }
     }
 
-    const handlegender = (e: any) => {
-        setGender(e.target.value)
-    }
 
     return (
         <div style={{ marginTop: "70px" }}>
             <h1>Add Teacher</h1>
             <div style={{ marginLeft: "43vh" }}>
-                <FormControl className="form" style={{ width: "50%", marginRight: "150px", marginTop: "40px", marginBottom:"20px" }}>
+                <FormControl className="form" style={{ width: "50%", marginRight: "150px", marginTop: "40px", marginBottom: "20px" }}>
                     <TextField required className="addinput" id="name" label="Teacher Name" placeholder="Enter the Name of Teacher" onChange={(e) => setName(e.target.value)} variant="outlined" />
                     <TextField required className="addinput" id="id" label="Teacher Id" placeholder="Enter the Id of Teacher" onChange={(e) => setId(e.target.value)} variant="outlined" />
                     <TextField required className="addinput" id="subject" label="Subject" placeholder="Enter the Subject" onChange={(e) => setSubject(e.target.value)} variant="outlined" />
                     <TextField required className="addinput" type="date" value={dob} id="dob" onChange={(e) => setDob(e.target.value)} variant="outlined" />
+                    <TextField required className="addinput" type="file" id="image" onChange={handleimage} variant="outlined" />
 
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
