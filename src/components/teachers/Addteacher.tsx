@@ -20,7 +20,7 @@ const Addteacher = () => {
     }
 
     const handleimage = (e: any) => {
-        setImg( e.target.files[0]);
+        setImg(e.target.files[0]);
         // console.log({ "image": e.target.files[0] });
         // console.log("-------------");
         // console.log("imagestate"+img);
