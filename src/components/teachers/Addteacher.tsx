@@ -21,9 +21,9 @@ const Addteacher = () => {
 
     const handleimage = (e: any) => {
         setImg( e.target.files[0]);
-        console.log({ "image": e.target.files[0] });
-        console.log("-------------");
-        console.log("imagestate"+img);
+        // console.log({ "image": e.target.files[0] });
+        // console.log("-------------");
+        // console.log("imagestate"+img);
 
     }
 
@@ -49,13 +49,18 @@ const Addteacher = () => {
             alert("Please select the gender");
         }
         else {
-            let form = new FormData();
-            form.append("test", img);
-            console.log(img);
+            // let form = new FormData();
+            // form.append("name", name);
+            // form.append("id", id);
+            // form.append("subject", subject);
+            // form.append("dob", dob);
+            // form.append("test", img);
+            // form.append("genddetr", gender);
+            // console.log(img);
             let result = await fetch("http://localhost:9000/teacher",
                 {
                     method: "post",
-                    body: JSON.stringify({ name, id, subject, dob, age, img, gender }),
+                    body: JSON.stringify({ name, id, subject, dob, img, gender }),
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
