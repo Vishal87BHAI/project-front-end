@@ -20,10 +20,10 @@ const Addteacher = () => {
     }
 
     const handleimage = (e: any) => {
-        setImg( e.target.files[0]);
-        console.log({ "image": e.target.files[0] });
-        console.log("-------------");
-        console.log("imagestate"+img);
+        setImg(e.target.files[0]);
+        // console.log(e.target.files[0]);
+        // console.log("-------------");
+        // console.log(img);
 
     }
 
@@ -51,6 +51,10 @@ const Addteacher = () => {
         else {
             let form = new FormData();
             form.append("test", img);
+            form.append(name, name);
+            form.append("test", img);
+            form.append("test", img);
+            form.append("test", img);
             console.log(img);
             let result = await fetch("http://localhost:9000/teacher",
                 {
@@ -70,7 +74,7 @@ const Addteacher = () => {
 
 
     return (
-        <div style={{ marginTop: "70px" }}>
+        <div style={{ marginTop: "30px" }}>
             <h1>Add Teacher</h1>
             <div style={{ marginLeft: "43vh" }}>
                 <FormControl className="form" style={{ width: "50%", marginRight: "150px", marginTop: "40px", marginBottom: "20px" }}>
