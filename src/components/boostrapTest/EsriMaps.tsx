@@ -6,7 +6,9 @@ export const EsriMaps = () => {
     <div>
       <Navbar />
       <div style={{ marginTop: "20px" }}>
-        <Scene />
+        {/* <Map /> */}
+        <Scene className="full-screen-map"
+        mapProperties={{ basemap: 'satellite' }} />
       </div>
     </div>
   );
