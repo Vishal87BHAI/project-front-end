@@ -53,11 +53,6 @@ export const OffcanvasSidebar = () => {
           </Spinner>
         )}
 
-        {/* alert for responsive Sidebar */}
-        {/* <Alert variant="info" className="d-none d-lg-block">
-          Resize your browser to show the responsive offcanvas toggle.
-        </Alert> */}
-
         <Offcanvas show={show} onHide={handleClose} scroll>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Offcanvas</Offcanvas.Title>
