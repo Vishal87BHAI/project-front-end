@@ -58,6 +58,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item active">
+              <NavLink className="nav-link" to="/Maps">
+                Maps
+              </NavLink>
+            </li>
+            <li className="nav-item active">
               <NavLink
                 className="nav-link"
                 to="/login"

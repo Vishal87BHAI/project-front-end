@@ -4,6 +4,7 @@ import "./App.css";
 import { Accordian } from "./components/boostrapTest/Accordian";
 import { AlertWithState } from "./components/boostrapTest/ALertWithState";
 import { CarouselSlider } from "./components/boostrapTest/CarouselSlider";
+import { EsriMaps } from "./components/boostrapTest/EsriMaps";
 import { FormValidation } from "./components/boostrapTest/FormValidation";
 import { ModalDialog } from "./components/boostrapTest/ModalDialog";
 import { OffcanvasSidebar } from "./components/boostrapTest/OffcanvasSidebar";
@@ -43,6 +44,7 @@ function App() {
           <Route path="/ModalDialog" element={<ModalDialog />} />
           <Route path="/Offcanvas" element={<OffcanvasSidebar />} />
           <Route path="/Tabs" element={<TabsinPage />} />
+          <Route path="/Maps" element={<EsriMaps />} />
           <Route path="/*" element={<Error />} />
 
           <Route element={<Protected />}>
