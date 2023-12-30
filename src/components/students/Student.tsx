@@ -81,7 +81,7 @@ const Student = () => {
 
     return (
         <div>
-            <Navbar />
+            
             <h1 style={{ marginTop: "55px" }}>Students</h1>
             <div style={{ backgroundColor: "orange", height: "40px", borderRadius: "10px", marginLeft: "5px", marginRight: "5px" }}>
                 <input type="text" placeholder="Search" onChange={handlesearch} style={{ marginTop: "5px", float: "left", marginLeft: "10px" }} />

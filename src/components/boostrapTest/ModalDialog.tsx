@@ -13,7 +13,7 @@ export const ModalDialog = () => {
   };
   return (
     <div>
-      <Navbar />
+      
       <div style={{ marginTop: "100px" }}>
         {!show && (
           <Button variant="primary" onClick={handleShow}>

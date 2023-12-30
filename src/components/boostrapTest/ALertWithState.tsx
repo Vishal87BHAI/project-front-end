@@ -9,7 +9,7 @@ export const AlertWithState = () => {
 
   return (
     <div>
-      <Navbar />
+      
       <div style={{ marginTop: "60px" }}>
         <Alert show={show} variant="success">
           <Alert.Heading>How's it going?!</Alert.Heading>

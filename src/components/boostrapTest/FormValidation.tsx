@@ -17,7 +17,7 @@ const schema = yup.object().shape({
 export const FormValidation = () => {
   return (
     <div>
-      <Navbar />
+      
       <div style={{ marginTop: "60px" }}>
         <Formik
           validationSchema={schema}

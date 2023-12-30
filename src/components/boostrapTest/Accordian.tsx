@@ -4,7 +4,7 @@ import Navbar from "../navigation/Navbar";
 export const Accordian = () => {
   return (
     <div>
-      <Navbar />
+      
       <div style={{ marginTop: "60px" }}>
         <Accordion alwaysOpen>
           <Accordion.Item eventKey="0">

@@ -6,7 +6,7 @@ import { FormValidation } from "./FormValidation";
 export const TabsinPage = () => {
   return (
     <div>
-      <Navbar />
+      
       <div
         style={{
           marginTop: "100px",

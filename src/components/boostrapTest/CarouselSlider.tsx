@@ -5,7 +5,7 @@ import { Image } from "react-bootstrap";
 export const CarouselSlider = () => {
   return (
     <div>
-      <Navbar />
+      
       <div style={{ marginTop: "50px" }}>
         <Carousel>
           <Carousel.Item>

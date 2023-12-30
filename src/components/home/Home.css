@@ -1,6 +1,5 @@
 .home{
     padding-top: 10px;
-    color: rgba(241, 242, 245, 0.993);
     font-family: Cambria;
     font-style: normal;
     font-size: 50px;
@@ -16,7 +15,7 @@
 .line{
     display: inline-block;
     height: 500px;
-    border-left: 3px solid white;
+    border-left: 3px solid black;
 }
 
 .student{
@@ -27,7 +26,6 @@
 
 .body
 {
-    background-color: black;
     margin-top: 50px;
 }
 

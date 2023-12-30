@@ -25,7 +25,7 @@ export const OffcanvasSidebar = () => {
 
   return (
     <div>
-      <Navbar />
+      
       <div style={{ marginTop: "100px" }}>
         {!show && (
           <OverlayTrigger
