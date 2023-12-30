@@ -31,7 +31,7 @@ const Student = () => {
     }, [])
 
     const getdata = async () => {
-        var result = await fetch("http://localhost:9000/getstudent", {
+        var result = await fetch("https://vishal-bhai-back-end.vercel.app/getstudent", {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -43,7 +43,7 @@ const Student = () => {
     }
 
     const deletedata = async (id: any) => {
-        var result = await fetch("http://localhost:9000/student/" + id,
+        var result = await fetch("https://vishal-bhai-back-end.vercel.app/student/" + id,
             {
                 method: "Delete"
                 ,
@@ -64,7 +64,7 @@ const Student = () => {
     }
 
     const handlesearch = async (e: any) => {
-        var result = await fetch("http://localhost:9000/search/" + e.target.value, {
+        var result = await fetch("https://vishal-bhai-back-end.vercel.app/search/" + e.target.value, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',

@@ -11,10 +11,10 @@ const Login = () => {
         const auth=localStorage.getItem("user");
         if(auth)
         {
-            navigate("/Home");
+            navigate("/");
         }
         else{
-            navigate("/");
+            navigate("/login");
         }
     },[])
 
@@ -30,7 +30,7 @@ const Login = () => {
         }
         else
         {
-            let result:any = await fetch("http://localhost:9000/login",
+            let result:any = await fetch("https://vishal-bhai-back-end.vercel.app/login",
             {
                 method: "post",
                 body: JSON.stringify({ email, password }),
@@ -44,7 +44,7 @@ const Login = () => {
         {
             localStorage.setItem("token",JSON.stringify(res.auth));
             alert("Login Successfully")
-            navigate("/Home");
+            navigate("/");
         }
         else{
             alert("Please enter valid data")

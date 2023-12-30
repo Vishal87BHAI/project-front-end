@@ -57,7 +57,7 @@ const Addteacher = () => {
             // form.append("test", img);
             // form.append("genddetr", gender);
             // console.log(img);
-            let result = await fetch("http://localhost:9000/teacher",
+            let result = await fetch("https://vishal-bhai-back-end.vercel.app/teacher",
                 {
                     method: "post",
                     body: JSON.stringify({ name, id, subject, dob, img, gender }),

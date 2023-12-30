@@ -23,7 +23,7 @@ const Editteacher = () => {
     }, [])
 
     const getdata = async () => {
-        var result = await fetch("http://localhost:9000/getteacher/" + params.id, {
+        var result = await fetch("https://vishal-bhai-back-end.vercel.app/getteacher/" + params.id, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -36,7 +36,7 @@ const Editteacher = () => {
 
     const handlesubmit = async () => {
 
-        let result = await fetch("http://localhost:9000/teacher/" + params.id,
+        let result = await fetch("https://vishal-bhai-back-end.vercel.app/teacher/" + params.id,
             {
                 method: "put",
                 body: JSON.stringify(data),

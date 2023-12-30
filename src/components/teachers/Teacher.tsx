@@ -28,10 +28,10 @@ const Teacher = () => {
 
     useEffect(() => {
         getdata();
-    })
+    }, []);
 
     const getdata = async () => {
-        let result = await fetch("http://localhost:9000/getteacher", {
+        let result = await fetch("https://vishal-bhai-back-end.vercel.app/getteacher", {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -43,7 +43,7 @@ const Teacher = () => {
     }
 
     const deletedata = async (id: any) => {
-        var result = await fetch("http://localhost:9000/teacher/" + id,
+        var result = await fetch("https://vishal-bhai-back-end.vercel.app/teacher/" + id,
             {
                 method: "Delete"
                 ,
@@ -64,7 +64,7 @@ const Teacher = () => {
     }
 
     const handlesearch = async (e: any) => {
-        var result = await fetch("http://localhost:9000/search/" + e.target.value, {
+        var result = await fetch("https://vishal-bhai-back-end.vercel.app/search/" + e.target.value, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',

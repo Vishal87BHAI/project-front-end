@@ -13,7 +13,7 @@ const Home = () => {
     }, [])
 
     const getTeacherdata = async () => {
-        var result = await fetch("http://localhost:9000/getteacher", {
+        var result = await fetch("https://vishal-bhai-back-end.vercel.app/getteacher", {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -28,7 +28,7 @@ const Home = () => {
     let countTeacher = tdata.length;
 
     const getstudentdata = async () => {
-        var result = await fetch("http://localhost:9000/getstudent", {
+        var result = await fetch("https://vishal-bhai-back-end.vercel.app/getstudent", {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',

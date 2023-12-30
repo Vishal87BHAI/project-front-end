@@ -8,13 +8,11 @@ const Addstudent=()=>{
     const [clas, setClas] = useState('');
     const [roll, setRoll] = useState('');
     const [dob, setDob] = useState('');
-    const [age, setAge] = useState('');
     const [gender, setGender] = useState('');
-
     
     const handlesubmit = async () => {
 
-        if (name === "" && clas === "" && roll === "" && dob === "" && age === "" && gender === "") {
+        if (name === "" && clas === "" && roll === "" && dob === "" && gender === "") {
             alert("Please enter the values");
         }
         else if (name === "") {
@@ -33,10 +31,10 @@ const Addstudent=()=>{
             alert("Please select the gender");
         }
         else {
-            let result = await fetch("http://localhost:9000/student",
+            let result = await fetch("https://vishal-bhai-back-end.vercel.app/student",
                 {
                     method: "post",
-                    body: JSON.stringify({ name, clas, roll, dob, age, gender }),
+                    body: JSON.stringify({ name, clas, roll, dob, gender }),
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',

@@ -27,7 +27,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Protected Component={Home} />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/Teacher" element={<Teacher />} />
           <Route path="/Student" element={<Student />} />
           <Route path="/Addstudent" element={<Addstudent />} />
@@ -46,10 +47,6 @@ function App() {
           <Route path="/Tabs" element={<TabsinPage />} />
           <Route path="/Maps" element={<EsriMaps />} />
           <Route path="/*" element={<Error />} />
-
-          <Route element={<Protected />}>
-            <Route path="/login" element={<Login />} />
-          </Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -15,7 +15,7 @@ const Viewteacher=()=>
     }, [])
 
     const getdata = async () => {
-        var result=await fetch("http://localhost:9000/getteacher/"+id, {
+        var result=await fetch("https://vishal-bhai-back-end.vercel.app/getteacher/"+id, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
